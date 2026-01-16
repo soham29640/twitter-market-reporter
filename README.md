@@ -1,22 +1,37 @@
-# 📊 Stock Market Sentiment Analysis using Domain-Adaptive Fine-Tuning (DAFT)
+Twitter Market Reporter
+Purpose
 
-## 📌 Overview
-This project focuses on extracting **high-quality financial sentiment signals** from social media data (X / Twitter) to support stock market analysis.  
-Unlike typical sentiment analysis projects, this work introduces a **Domain-Adaptive Fine-Tuning (DAFT)** stage to filter noisy, spam-heavy tweets **before** applying sentiment models.
+This project automatically generates a daily market expectation report for a specific stock using Twitter data.
 
-The motivation is simple:
-> Raw social media data is extremely noisy. Without filtering, sentiment models produce unreliable signals.
+The system:
 
-This repository demonstrates a **research-inspired, industry-style NLP pipeline** designed for real-world financial text.
+Collects stock-related tweets and stores them in MongoDB
 
----
+Identifies and ranks high-impact tweets
 
-## 🚀 Key Contributions
-- ✅ Uses **X API v2** for legal and stable tweet collection
-- ✅ Introduces a **Tweet Quality Classifier** trained via **Domain-Adaptive Fine-Tuning (DAFT)**
-- ✅ Applies **weak supervision** to build a custom dataset
-- ✅ Separates **quality filtering** from **sentiment analysis**
-- ✅ Designed for **financial Twitter discourse**, not generic text
+Generates a concise daily market summary using an LLM
 
----
+Sends the report automatically via email
 
+This project does not predict stock prices.
+It summarizes public market expectations and key discussion themes based on Twitter activity.
+
+Tech Stack
+
+Python
+
+MongoDB
+
+Twitter API
+
+LLM for text generation
+
+Email (SMTP)
+
+How It Runs
+
+Tweet data is collected and stored continuously
+
+A daily job processes the last 24 hours of data
+
+A summary report is generated and emailed to the client
